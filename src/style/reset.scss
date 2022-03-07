@@ -1,0 +1,35 @@
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: currentColor;
+  text-decoration: none;
+}
+input,
+button {
+    border: none;
+    background-color: inherit;
+    padding: 0;
+}
+input:focus,
+input:focus-visible {
+  outline: none;
+}
+button {
+  cursor: pointer;
+}
+div {
+  box-sizing: border-box;
+}
+img {
+  display: block;
+}
+h1, h2, h3, h4, h5, h6,p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, div, span, button, a, i {
+  user-select: none;
+}

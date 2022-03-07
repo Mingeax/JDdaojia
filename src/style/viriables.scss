@@ -1,0 +1,21 @@
+// 命名规范: 属性在先,描述在中,颜色在后.
+// 但词组不受此限制,如 theme-green.
+
+$bg-light-gray: rgb(250, 250, 250);
+$bg-gray: rgb(246, 246, 246);
+$bg-inactive-gradiant-gray:
+  linear-gradient(135deg, rgb(204, 204, 204) 0%, rgb(170, 170, 170) 100%);
+$font-translucence: rgba(0, 0, 0, .5);
+$theme-green: rgb(8, 193, 42);
+$theme-green-btn-gradiant-bg-img:
+  linear-gradient(35deg, rgb(69, 220, 109) 0%, rgb(0, 207, 55) 100%);
+$theme-green-btn-bg-color: rgb(71, 179, 79);
+$theme-green-btn-box-shadow: rgba(71, 179, 79, .2) .08rem .04rem .1rem;
+$font-black: rgb(51, 51, 51);
+$font-gray: rgb(102, 102, 102);
+$font-light-gray: rgb(153, 153, 153);
+$border-gray: rgb(245, 245, 245);
+$border-white: rgb(232, 232, 232);
+$striking-red: rgb(255, 87, 87);
+$price-red: rgb(255, 30, 25);
+$delivery-blue: rgb(0, 119, 238);

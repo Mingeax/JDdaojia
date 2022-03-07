@@ -1,0 +1,175 @@
+@import '@/style/viriables.scss';
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: normal;
+    white-space: nowrap; 
+    word-break: normal;
+}
+
+@mixin bg {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+}
+@mixin mask-with-transition {
+    @include bg;
+    z-index: 99;
+    pointer-events: auto;
+    background-color: $font-translucence;
+    transition: background-color .5s linear 0s;
+    cursor: pointer;
+}
+@mixin mask-with-transition-deactived {
+    pointer-events: none;
+    background-color: transparent;
+}
+
+@mixin column-list {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow-y: scroll;
+}
+@mixin column-sub-block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: auto;
+}
+@mixin column-centered-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+@mixin column-stretched-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+@mixin up-down-flex {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+@mixin row-centered-list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+@mixin row-stretched-list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+}
+@mixin bilateral-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+@mixin reverse-start-flex {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: flex-start;
+}
+@mixin single-item-centered {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin fixed-to-top-stretched {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+@mixin fixed-to-bottom-stretched {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+@mixin counting {
+    width: max-content;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: .23rem;
+}
+@mixin minus-plus-btn {
+    display: inline-block;
+    color: $theme-green;
+    width: .23rem;
+    height: 100%;
+    font-size: .23rem;
+}
+@mixin counting-num {
+    @include ellipsis;
+    display: inline-block;
+    width: 0.32rem;
+    font-size: 0.16rem;
+    text-align: center;
+    height: 100%;
+    vertical-align: top;
+    line-height: .23rem;
+}
+
+@mixin check-btn {
+    height: .2rem;
+    width: .2rem;
+    color: white;
+    border-radius: .1rem;
+    font-weight: bold;
+    align-self: center;
+}
+@mixin unchecked-btn {
+    background-color: currentColor;
+    border: 2px solid rgb(212, 212, 212);
+}
+@mixin checked-btn {
+    background-color: $theme-green;
+}
+
+@mixin with-rightward-arrow {
+    // 给 .with__rightward__arrow::after 用.
+    // 注意 .with__rightward__arrow 元素应设定定位.
+    display: block;
+    position: absolute;
+    content: '';
+    height: .06rem;
+    width: .06rem;
+    border-right: 1px solid rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(102, 102, 102);
+    transform-origin: center center 0px;
+    right: -.152rem;
+    top: 50%;
+    transform: rotate(-45deg) translateY(-50%);
+}
+
+@mixin theme-green-long-btn {
+    background-image: $theme-green-btn-gradiant-bg-img;
+    background-color: $theme-green-btn-bg-color;
+    color: white;
+    box-shadow: $theme-green-btn-box-shadow;
+    border-radius: .2rem;
+    height: .4rem;
+    font-size: .16rem;
+    font-weight: bold;
+}
+
+@mixin head-green-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(
+      135deg,
+      rgb(85, 216, 94) 0%,
+      rgb(72, 193, 81) 100%);
+      z-index: -1;
+  }

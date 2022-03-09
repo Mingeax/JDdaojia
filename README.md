@@ -1,6 +1,8 @@
 # JDdaojia
 
-## 安装项目 Project setup
+
+## 命令行中的基础操作:
+### 安装项目 Project setup
 ```
 npm install
 ```

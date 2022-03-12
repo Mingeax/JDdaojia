@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  // 注:端口号对应后端端口.
-  baseURL: 'http://192.168.50.46:3000/api/',
+  // 该端口号对应后端端口.
+  baseURL: 'http://localhost:3000/api/',
   timeout: 1000,
   headers: {
     'content-type': 'application/json'

@@ -5,14 +5,14 @@
  </div>
  <div class="banner">
    <img src="../../../assets/img/home/home_banner.gif"
-    alt="促销活动" class="banner__img">
+    alt="" class="banner__img">
  </div>
 
  <div class="service__matrix">
    <div v-for="(item) of advancedServeList"
    class="service__item" :class="'service__item__' + item.itemPinyin" :key="item.itemNum">
     <img :src="item.itemImgURL"
-    :alt="item.itemName" class="service__img">
+    alt="" class="service__img">
     <div class="service__name">{{ item.itemName }}</div>
    </div>
  </div>

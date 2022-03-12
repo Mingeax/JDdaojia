@@ -347,7 +347,7 @@ export default {
     }
     .payment {
       @include row-centered-list;
-      justify-content: end;
+      justify-content: flex-end;
       gap: .08rem;
       font-size: .14rem;
       padding: .2rem 0;

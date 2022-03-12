@@ -77,7 +77,7 @@ export default {
 .submit {
   @include fixed-to-bottom-stretched;
   @include row-centered-list;
-  justify-content: end;
+  justify-content: flex-end;
   padding: .08rem 0;
   background-color: white;
   border-top: 1px solid $border-gray;

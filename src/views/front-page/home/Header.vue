@@ -1,7 +1,8 @@
 <template>
 <div class="header header--top">
-  <!-- 注: 此处应展示地址列表中第一个. -->
  <router-link class="header__address" :to="{ name: 'AddressList' }">
+   <!-- 此处如果可以的话应显示定位地址,但是geoAPI涉及大量复杂的安全环境问题,所以此处用固定文字代替. -->
+   管理地址
    <span class="iconfont icon-dingwei "></span>
    <span class="iconfont icon-xiajiantou-copy"></span>
  </router-link>
@@ -14,17 +15,9 @@
 </template>
 
 <script>
-
-const getDefaultAddressData = () => {
-  const location = navigator.geolocation || '未开启定位功能'
-
-  return { location }
-}
 export default {
   name: 'Docker',
   setup() {
-
-    return {  }
   }
 }
 </script>

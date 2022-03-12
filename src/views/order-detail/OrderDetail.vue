@@ -287,8 +287,6 @@ export default {
         );
         border: none;
       }
-      .after__sales {
-      }
       .more {
         width: fit-content;
         min-width: .46rem;
@@ -330,14 +328,8 @@ export default {
           flex: 1 1 auto;
           font-size: .14rem;
           gap: .1rem;
-          .product__name {
-
-          }
           .product__amounts {
             @include bilateral-flex;
-            .unit__price__n__count {
-
-            }
             .total__price {
               font-weight: bold;
             }

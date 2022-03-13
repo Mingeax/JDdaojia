@@ -350,6 +350,7 @@ export default {
   height: .44rem;
   line-height: .44rem;
   font-size: .25rem;
+  cursor: pointer;
 }
 .confirm__btn {
   border-radius: .2rem;

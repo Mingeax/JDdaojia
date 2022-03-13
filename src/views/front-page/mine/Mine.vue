@@ -77,7 +77,9 @@ const receiveMineList = () => {
   // 注: 页面信息列表应改成前端设置.
   const mineLists = reactive({ propertyList: [], functionServeList: [] })
   const processMineLists = () => {
-    Promise.all([get('property-list'), get('function-serve-list')])
+    Promise.all([
+      get('property-list', { headers: { 'Cache-Control': 'max-age=2592000' } }),
+      get('function-serve-list', { headers: { 'Cache-Control': 'max-age=2592000' } })])
       .then(res => {
         mineLists.propertyList = res[0]
         const addFunctionServeImgURL = () => {
@@ -225,11 +227,8 @@ export default {
   .wallet {
     height: .58rem;
     width: .75rem;
-    flex: 1 1 auto;
   }
   .wallet {
-    height: .58rem;
-    width: .75rem;
     &__icon {
       text-align: center;
       width: .32rem;
@@ -245,7 +244,6 @@ export default {
     }
   }
   #seperator {
-    flex: 1 0 .1rem;
     width: .1rem;
     height: .58rem;
     background: url('~@/assets/img/mine/separator.png') no-repeat center;

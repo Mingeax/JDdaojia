@@ -27,7 +27,7 @@ const useServeListEffect = () => {
   const serveList = ref([])
   const advancedServeList = ref([])
   const processServeList = () => {
-    get('service-list')
+    get('service-list', { headers: { 'Cache-Control': 'max-age=2592000' } })
       .then(res => {
         serveList.value = res
         for (const serveItem of serveList.value) {

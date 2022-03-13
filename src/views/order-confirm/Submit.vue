@@ -1,7 +1,7 @@
 <template>
   <div class="submit">
     <div class="actual__payment">&yen;{{(+actualPayment).toFixed(2)}}</div>
-    <button id="submit__btn" type="button" :disabled="appliedAddress.isEmpty"
+    <button id="submit__btn" type="button"
      @click="handleSubmitBtn(appliedAddress)">提交订单</button>
   </div>
 </template>
@@ -20,6 +20,11 @@ const useStoreInfo = () => {
       router.push({ name: 'LoginRegister' })
       return
     }
+    if (appliedAddress.isEmpty) {
+      alert('请新建并选择地址.')
+      router.push({ name: 'OperateAddress', params: { type: 'create' } })
+      return
+    }
     console.log('Submit')
     const accountId = sessionStorage.getItem('accountId')
     const shopId = +store.state.newOrder.shopId
@@ -28,6 +33,7 @@ const useStoreInfo = () => {
       telNum: appliedAddress.telNum,
       address: appliedAddress.address
     }
+    console.log('addressInfo:', addressInfo)
     const products = store.state.newOrder.products.map(item => {
       const tempProduct = { ...item }
       // 这些商品信息不需要上传到后端.

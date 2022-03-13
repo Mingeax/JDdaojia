@@ -10,7 +10,9 @@
         </div>
         <div class="shop__info">
           <div class="shop__name with__rightward__arrow">{{order.shopCnName}}</div>
-          <div class="order__state to__pay" v-if="true">{{'待支付'}}</div>
+          <div class="order__state accomplished" v-if="true">{{'已完成'}}</div>
+          <!-- 以下几项不会显示,但可以在进一步开发时使用. -->
+          <div class="order__state to__pay" v-if="false">{{'待支付'}}</div>
           <div class="order__state canceled" v-if="false">{{'已取消'}}</div>
           <div class="order__state proceeding" v-if="false">{{'进行中'}}</div>
         </div>
@@ -34,10 +36,10 @@
         <div class="payment">&yen;{{order.payment}}</div>
       </div>
       <div class="btns">
-        <button class="btn__rebuy btn" v-if="false" type="button">{{'再次购买'}}</button>
+        <button class="btn__rebuy btn" v-if="true" type="button"
+         @click="handleRebuyBtn(orderIndex)">{{'再次购买'}}</button>
         <button v-if="false" type="button"></button>
-        <!-- 注: 要把'去支付'换成再买. -->
-        <button class="btn__topay btn" v-if="true" type="button">{{'去支付'}}</button>
+        <button class="btn__topay btn" v-if="false" type="button">{{'去支付'}}</button>
       </div>
     </div>
     <EmptyMessage class="sub__block" v-show="Object.keys(orders).length === 0">
@@ -48,15 +50,21 @@
 </template>
 
 <script>
-import { post } from '@/utils/request.js'
+import { post, get } from '@/utils/request.js'
 import { reactive, ref } from '@vue/reactivity'
 import NoLoginPage from '@/components/NoLoginPage.vue'
 import EmptyMessage from '@/components/EmptyMessage.vue'
 import { watchEffect } from '@vue/runtime-core'
 import { wrongLoginGuard } from '@/utils/wrongLoginGuard.js'
+import { useRouter } from 'vue-router'
+import { useCommonCartEffect } from '@/views/shop/commonCartEffect.js'
 
 const useOrderEffect = () => {
+  const router = useRouter()
+  const { changeCartItem } = useCommonCartEffect()
+
   const orders = reactive({})
+
   const getOrderList = async() => {
     if (!+sessionStorage.getItem('isLogin')) return
     try {
@@ -81,7 +89,21 @@ const useOrderEffect = () => {
   }
   getOrderList()
 
-  return { orders }
+  const handleRebuyBtn = async(orderIndex) => {
+    const { shopId, products, shopCnName, shopEnName } = orders[orderIndex]
+    products.forEach(async(item) => {
+      const productId = item.id
+      const result = await get(`/shop/${shopId}/${productId}`)
+      const product = result
+      product.imgURL = require(`@/assets/img/shop/${shopEnName}/${item.id}.jpg`)
+
+      changeCartItem(product, item.count, shopId, shopCnName)
+    })
+
+    router.push({ name: 'Shop', params: { id: shopId } })
+  }
+
+  return { orders, handleRebuyBtn }
 }
 
 const useLoginEffect = () => {
@@ -97,9 +119,9 @@ export default {
   name: 'Order',
   components: { NoLoginPage, EmptyMessage },
   setup() {
-    const { orders } = useOrderEffect()
+    const { orders, handleRebuyBtn } = useOrderEffect()
     const { isLogin } = useLoginEffect()
-    return { orders, isLogin }
+    return { orders, isLogin, handleRebuyBtn }
   }
 }
 
@@ -157,6 +179,9 @@ img {
         }
         .order__state {
           font-size: .13rem;
+        }
+        &.accomplished {
+          color: $font-black;
         }
         &.proceeding {
           color: $theme-green-btn-bg-color;

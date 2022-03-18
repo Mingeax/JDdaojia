@@ -2,7 +2,7 @@
 
 ## 简介
 
-JDdaojia是模仿[**京东到家**](http://www.jddj.com/#/)而构建的web移动端电子商城，本仓库是它的前端项目．后端api接口部分见： [JDdaojia-backAPI](https://github.com/Mingeax/JDdaojia-backAPI 'JDdaojia-backAPI')．
+JDdaojia是模仿[**京东到家**](http://www.jddj.com/#/)而构建的web移动端电子商城，本仓库是它的前端项目．后端api接口部分见： [JDdaojia-backAPI](https://github.com/Mingeax/JDdaojia-backAPI 'JDdaojia-backAPI')．演示视频见: [哔哩哔哩视频](https://www.bilibili.com/video/BV1vR4y1F7nW/ 'BV1vR4y1F7nW')
 
 本项目实现了电子商城用户端的基本操作，包括登录注册、商店商品展示、购物车、下订单、历史订单查询、保存和编辑地址等功能，并尽力还原了京东到家特有的UI风格．
 
@@ -46,7 +46,7 @@ npm run lint
 使用其中给出的URL即可访问页面.但此前应该先运行项目的[后端接口](https://github.com/Mingeax/JDdaojia-backAPI 'JDdaojia-backAPI')服务器,默认使用3000端口.
 
 ## 提示
-+ 可通过 用户名: admin , 密码: admin 直接登录商城,绕过注册环节.另外,商城现在没有手机短信登录功能,请使用用户名密码登录.
++ 可通过 **用户名: admin , 密码: admin** 直接登录商城,绕过注册环节.另外,商城现在没有手机短信登录功能,请使用用户名密码登录.
 + 项目使用rem方案实现自适应布局.
 + 项目只在Firefox和Edge浏览器上测试过,Chrome和Safari浏览器可能会遇到布局bug,如有发现请联系我予以修改.
 + 布局充分利用flex,简化了css代码.

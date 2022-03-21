@@ -2,10 +2,12 @@
 
 ## 简介
 
-JDdaojia是模仿[**京东到家**](http://www.jddj.com/#/)而构建的web移动端电子商城，本仓库是它的前端项目．后端api接口部分见： [JDdaojia-backAPI](https://github.com/Mingeax/JDdaojia-backAPI 'JDdaojia-backAPI')．演示视频见: [哔哩哔哩视频](https://www.bilibili.com/video/BV1vR4y1F7nW/ 'BV1vR4y1F7nW')
+JDdaojia是模仿[**京东到家**](http://www.jddj.com/#/)而构建的web移动端电子商城，本仓库是它的前端项目．后端api接口部分见： [JDdaojia-backAPI](https://github.com/Mingeax/JDdaojia-backAPI 'JDdaojia-backAPI')．
+
 
 本项目实现了电子商城用户端的基本操作，包括登录注册、商店商品展示、购物车、下订单、历史订单查询、保存和编辑地址等功能，并尽力还原了京东到家特有的UI风格．
 
+演示视频见: [哔哩哔哩视频](https://www.bilibili.com/video/BV1vR4y1F7nW/ 'BV1vR4y1F7nW') ．
 ## 所用技术
 + vue3 + vuex + vue-router + vue-cli
 + axios
